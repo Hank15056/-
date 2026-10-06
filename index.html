@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ПК-Мастер — компьютерный сервис</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Golos+Text:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Шаг 3. Шапка сайта -->
+    <header class="header">
+        <div class="container header__inner">
+            <a href="#home" class="logo">ПК-Мастер</a>
+
+            <!-- Кнопка мобильного меню (работает через script.js) -->
+            <button class="burger" id="burger" aria-label="Открыть меню" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+
+            <nav class="nav" id="nav">
+                <a href="#home">Главная</a>
+                <a href="#about">О нас</a>
+                <a href="#services">Услуги</a>
+                <a href="#contacts">Контакты</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Шаг 4. Главный экран -->
+        <section class="hero" id="home">
+            <div class="container hero__inner">
+                <div class="hero__text">
+                    <h1>Ремонт компьютеров и ноутбуков</h1>
+                    <p>Компьютерный сервис «ПК-Мастер»: диагностика, ремонт, чистка и настройка техники. Бесплатная диагностика при ремонте у нас.</p>
+                    <button type="button" class="btn" id="openModal">Оставить заявку</button>
+                </div>
+                <img src="images/hero.png" alt="Иллюстрация монитора" class="hero__img">
+            </div>
+        </section>
+
+        <!-- Шаг 5. Раздел «О нас» -->
+        <section class="about" id="about">
+            <div class="container about__inner">
+                <img src="images/about.png" alt="Микросхема" class="about__img">
+                <div>
+                    <h2>О нас</h2>
+                    <p>«ПК-Мастер» — компьютерный сервис, который работает с 2019 года. Мы ремонтируем настольные компьютеры, ноутбуки и моноблоки любых марок. Перед ремонтом проводим диагностику и называем точную стоимость работ. На все выполненные работы даём гарантию до 6 месяцев. Наша цель — чтобы ваша техника работала быстро и без сбоев.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Шаг 6. Услуги -->
+        <section class="services" id="services">
+            <div class="container">
+                <h2>Услуги</h2>
+                <div class="cards">
+                    <article class="card">
+                        <h3>Диагностика</h3>
+                        <p>Находим причину неисправности: проверяем железо, систему и температуру компонентов.</p>
+                        <span class="card__price">от 300 сом</span>
+                    </article>
+                    <article class="card">
+                        <h3>Чистка и замена термопасты</h3>
+                        <p>Удаляем пыль, меняем термопасту — ноутбук перестаёт греться и шуметь.</p>
+                        <span class="card__price">от 800 сом</span>
+                    </article>
+                    <article class="card">
+                        <h3>Установка Windows и программ</h3>
+                        <p>Переустановка системы, драйверы, антивирус и нужные программы с сохранением файлов.</p>
+                        <span class="card__price">от 600 сом</span>
+                    </article>
+                    <article class="card">
+                        <h3>Апгрейд ПК</h3>
+                        <p>Подбор и установка SSD, оперативной памяти и видеокарты.</p>
+                        <span class="card__price">от 500 сом</span>
+                    </article>
+                </div>
+                <img src="images/services.png" alt="Клавиатура" class="services__img">
+            </div>
+        </section>
+
+        <!-- Шаг 7. Контакты -->
+        <section class="contacts" id="contacts">
+            <div class="container">
+                <h2>Контакты</h2>
+                <ul class="contacts__list">
+                    <li><b>Адрес:</b> г. Бишкек, ул. Учебная, 1 (учебные данные)</li>
+                    <li><b>Телефон:</b> <a href="tel:+996555000000">+996 555 000 000</a></li>
+                    <li><b>Email:</b> <a href="mailto:info@pc-master.example">info@pc-master.example</a></li>
+                    <li><b>Часы работы:</b> пн–сб, 9:00–19:00</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>© 2026 Компьютерный сервис «ПК-Мастер». Учебный проект — Павлов А.С., группа КС 3-24.</p>
+        </div>
+    </footer>
+
+    <!-- Окно с анкетой заявки (открывается кнопкой «Оставить заявку») -->
+    <div class="modal" id="modal" aria-hidden="true">
+        <div class="modal__window" role="dialog" aria-labelledby="modalTitle">
+            <button type="button" class="modal__close" id="closeModal" aria-label="Закрыть">&times;</button>
+
+            <!-- Анкета -->
+            <form class="form" id="requestForm" novalidate>
+                <h2 id="modalTitle">Заявка на ремонт</h2>
+
+                <label for="name">Ваше имя</label>
+                <input type="text" id="name" name="name" placeholder="Например, Айбек">
+
+                <label for="phone">Телефон</label>
+                <input type="tel" id="phone" name="phone" placeholder="+996 555 000 000">
+
+                <label for="device">Устройство</label>
+                <select id="device" name="device">
+                    <option value="">Выберите устройство</option>
+                    <option>Ноутбук</option>
+                    <option>Компьютер</option>
+                    <option>Моноблок</option>
+                    <option>Другое</option>
+                </select>
+
+                <label for="problem">Что случилось?</label>
+                <textarea id="problem" name="problem" rows="3" placeholder="Кратко опишите проблему"></textarea>
+
+                <p class="form__error" id="formError"></p>
+                <button type="submit" class="btn btn--full">Отправить заявку</button>
+            </form>
+
+            <!-- Сообщение после отправки -->
+            <div class="form__success" id="formSuccess" hidden>
+                <h2>Заявка отправлена</h2>
+                <p id="successText"></p>
+                <button type="button" class="btn" id="okButton">Хорошо</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
